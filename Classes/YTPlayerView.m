@@ -282,6 +282,19 @@ NSString static *const kYTPlayerStaticProxyRegexPattern = @"^https://content.goo
   return playbackRates;
 }
 
+#pragma mark - Volume settings
+
+- (ushort)volume
+{
+    return [(NSString *)[self stringFromEvaluatingJavaScript:@"player.getVolume();"] integerValue];
+}
+
+- (void)setVolume:(ushort)volume
+{
+    NSString *command = [NSString stringWithFormat:@"setVolume(%@);", @(volume)];
+    [self stringFromEvaluatingJavaScript:command];
+}
+
 #pragma mark - Setting playback behavior for playlists
 
 - (void)setLoop:(BOOL)loop {

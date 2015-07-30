@@ -504,6 +504,16 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  */
 - (NSArray *)availablePlaybackRates;
 
+#pragma mark - Setting volume
+
+/*
+ Volume value 0-100.
+ See https://developers.google.com/youtube/iframe_api_reference#setVolume
+ */
+- (ushort)volume;
+
+- (void)setVolume:(ushort)volume;
+
 #pragma mark - Setting playback behavior for playlists
 
 /**
